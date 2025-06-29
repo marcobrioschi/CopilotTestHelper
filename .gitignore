@@ -1,0 +1,11 @@
+# Ambiente virtuale Python
+# Non vogliamo mai fare il commit di questa cartella
+venv/
+
+# File di cache e compilati di Python
+__pycache__/
+*.pyc
+
+# File di configurazione specifici dell'editor (es. VS Code)
+.vscode/
+
