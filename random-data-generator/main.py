@@ -18,4 +18,3 @@ def hello_http(request):
 
     # Per ora, restituiamo un semplice saluto.
     return "Ciao dal mondo delle Cloud Functions!"
-
