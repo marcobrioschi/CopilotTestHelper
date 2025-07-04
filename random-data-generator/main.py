@@ -17,4 +17,4 @@ def hello_http(request):
     # Esempio: request.args.get('name')
 
     # Per ora, restituiamo un semplice saluto.
-    return "Ciao dal mondo delle Cloud Functions!!!"
+    return "Test Data"
