@@ -35,13 +35,22 @@ def auth_callback():
     return "Authentication successful, now you can close this window", 200
 
 # --- Endpoint di Generazione Dati (MODIFICATO) ---
-@app.route("/testdata/generate")
+@app.route("/testdata/generate", methods=['GET', 'POST'])
 def generate_data_endpoint():
     """
-    Genera dati di test in base al parametro 'datatype' fornito nell'URL.
-    Esempio: /testdata/generate?datatype=name
+    Genera dati di test in base al parametro 'datatype' fornito nell'URL o nel body della richiesta.
+    GET: /testdata/generate?datatype=name
+    POST: /testdata/generate con JSON body {"datatype": "name"}
     """
-    data_type = request.args.get('datatype')
+    # Gestisce sia GET che POST
+    if request.method == 'GET':
+        data_type = request.args.get('datatype')
+    else:  # POST
+        json_data = request.get_json()
+        if json_data:
+            data_type = json_data.get('datatype')
+        else:
+            data_type = None
 
     if not data_type:
         return jsonify({"error": "Il parametro 'datatype' è obbligatorio."}), 400
