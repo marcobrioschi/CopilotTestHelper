@@ -1,2 +1,0 @@
-# requirements.txt
-functions_framework==3.*
